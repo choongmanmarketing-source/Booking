@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LIFF จองโต๊ะร้านอาหาร</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>จองโต๊ะผ่าน LINE LIFF</h1>
+        <p class="subtitle">กรอกข้อมูลให้ครบ แล้วกดยืนยันการจอง</p>
+      </header>
+
+      <section id="liff-status" class="notice loading">กำลังเชื่อมต่อ LIFF...</section>
+
+      <form id="booking-form" class="card" novalidate>
+        <label>
+          ชื่อผู้จอง
+          <input type="text" id="name" name="name" placeholder="เช่น สมชาย ใจดี" required />
+        </label>
+
+        <label>
+          เบอร์โทรศัพท์
+          <input type="tel" id="phone" name="phone" pattern="[0-9]{9,10}" placeholder="0812345678" required />
+        </label>
+
+        <div class="grid-2">
+          <label>
+            วันที่
+            <input type="date" id="date" name="date" required />
+          </label>
+
+          <label>
+            เวลา
+            <input type="time" id="time" name="time" required />
+          </label>
+        </div>
+
+        <div class="grid-2">
+          <label>
+            จำนวนคน
+            <input type="number" id="guests" name="guests" min="1" max="20" value="2" required />
+          </label>
+
+          <label>
+            โซนที่นั่ง
+            <select id="zone" name="zone" required>
+              <option value="indoor">ห้องแอร์</option>
+              <option value="outdoor">เอาท์ดอร์</option>
+              <option value="private">ห้องส่วนตัว</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          หมายเหตุเพิ่มเติม
+          <textarea id="note" name="note" rows="3" placeholder="เช่น มีเด็กเล็ก 1 คน"></textarea>
+        </label>
+
+        <button type="submit" id="submit-btn">ยืนยันการจอง</button>
+      </form>
+
+      <section id="result" class="card hidden"></section>
+      <section id="history" class="card hidden"></section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
